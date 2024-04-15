@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Dashboard Page</h1>
+    <h2><%= userName %></h2>
+    <ul>
+        <% for(let user of users) { %>
+            <li data-id="<%= user.id%>"><%= user.name %></li>
+        <% } %>
+    </ul>
+    <div class="message">
+        <h3>discussion avec <span class="receiver"></span> </h3>
+        <ul class="message__list"></ul>
+    </div>
+</body>
+</html>
