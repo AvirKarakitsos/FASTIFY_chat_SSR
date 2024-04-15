@@ -1,5 +1,6 @@
 import Fastify from 'fastify';
 import 'dotenv/config';
+import fastifyStatic from '@fastify/static';
 import fastifyMysql from '@fastify/mysql';
 import fastifyView from '@fastify/view';
 import fastifyFormbody from '@fastify/formbody';
@@ -21,6 +22,10 @@ fastify.register(fastifyMysql, {
     user: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,
+});
+
+fastify.register(fastifyStatic, {
+    root: join(__dirname, 'public'),
 });
 
 fastify.register(fastifyView, {
