@@ -6,6 +6,7 @@ import fastifyView from '@fastify/view';
 import fastifyFormbody from '@fastify/formbody';
 import ejs from 'ejs';
 import fastifySecureSession from '@fastify/secure-session';
+import fastifySocketIO from 'fastify-socket.io';
 import { loginRoute } from './routes/login.js';
 import { userRoute } from './routes/user.js';
 import { dirname, join } from 'path';
@@ -23,6 +24,8 @@ fastify.register(fastifyMysql, {
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,
 });
+
+await fastify.register(fastifySocketIO);
 
 fastify.register(fastifyStatic, {
     root: join(__dirname, 'public'),
@@ -45,5 +48,26 @@ fastify.register(fastifySecureSession, {
 
 fastify.register(loginRoute);
 fastify.register(userRoute);
+
+fastify.io.on('connection', (socket) => {
+    //fastify.io.emit('isConnected', `${socket.id.substring(0, 5)} est connecté`);
+
+    socket.on('user_connected', (msg) => {
+        socket.broadcast.emit('isConnected', msg);
+    });
+
+    socket.on('join-room', (room) => {
+        if (socket.room) {
+            socket.leave(socket.room);
+        }
+        socket.join(room);
+        socket.room = room;
+        console.info(socket.id + ' joined room: ' + room);
+    });
+
+    socket.on('send', (msg) => {
+        socket.to(socket.room).emit('receive', msg);
+    });
+});
 
 export { fastify };

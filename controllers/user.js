@@ -7,7 +7,7 @@ export async function dashboard(fastify, request, reply) {
     );
 
     return reply.view('view/dashboard.ejs', {
-        userName: name,
+        userAccount: { id, name },
         users: results,
     });
 }

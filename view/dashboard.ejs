@@ -8,16 +8,22 @@
 </head>
 <body>
     <h1>Dashboard Page</h1>
-    <h2><%= userName %></h2>
-    <ul>
+    <h2 class="users__title" data-account="<%= userAccount.name %>"><%= userAccount.name %></h2>
+    <ul class="users__list" data-account="<%= userAccount.id %>">
         <% for(let user of users) { %>
             <li data-id="<%= user.id%>"><%= user.name %></li>
         <% } %>
     </ul>
-    <div class="message">
-        <h3>discussion avec <span class="receiver"></span> </h3>
+    <div class="messageContainer">
+        <h3 class="message__title"></h3>
+        <p class="message__error"></p>
         <ul class="message__list"></ul>
+        <form id="formMessage">
+            <textarea name="message" id="message" cols="30" rows="10"></textarea>
+            <button type="submit">Valider</button>
+        </form>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js" integrity="sha512-11t8Q+vY9JlCrr+PveZKTYJq8n7O09Y5X/pk/aMd3vJugSvu4xOunGEUzaADqL3I8cZKE/pBwwCfXzDkRJh2sQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="index.js"></script>
 </body>
 </html>
