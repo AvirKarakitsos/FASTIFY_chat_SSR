@@ -7,22 +7,102 @@
     <title>Dashboard</title>
 </head>
 <body>
-    <h1>Dashboard Page</h1>
-    <h2 class="users__title" data-account="<%= userAccount.name %>"><%= userAccount.name %></h2>
-    <ul class="users__list" data-account="<%= userAccount.id %>">
-        <% for(let user of users) { %>
-            <li data-id="<%= user.id%>"><%= user.name %></li>
-        <% } %>
-    </ul>
-    <div class="messageContainer">
-        <h3 class="message__title"></h3>
-        <p class="message__error"></p>
-        <ul class="message__list"></ul>
-        <form id="formMessage">
-            <textarea name="message" id="message" cols="30" rows="10"></textarea>
-            <button type="submit">Valider</button>
-        </form>
+    <div class="main-container">
+        <aside class="aside-left">
+            <div class="sender">
+                <img class="sender__image" src="https://randomuser.me/api/portraits/men/33.jpg" alt="profile photo">
+                <div class="sender__info">
+                    <h2 class="sender__info__name subtitle" data-account="<%= userAccount.name %>"><%= userAccount.name %></h2>
+                    <div class="sender__info__isActive">
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                          </label>
+                        <span>Active</span>
+                    </div>
+                </div>
+            </div>
+            <div class="search">
+                <input type="search" placeholder="Search Contact">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="users">
+                <h3 class="subtitle">Chats</h3>
+                <nav class="users__navbar">
+                    <ul>
+                        <li class="isSelected">All</li>
+                        <li>Group</li>
+                    </ul>
+                </nav>
+                <ul class="users__list" data-account="<%= userAccount.id %>">
+                    <% for(let user of users) { %>
+                        <li class="users__list__account" data-id="<%= user.id%>">
+                            <div class="users__list__account__profile">
+                                <img src="" alt="profile photo">
+                                <div>
+                                    <p class="name"><%= user.name %></p>
+                                    <p>Typing...</p>
+                                </div>
+                            </div>
+                            <div class="users__list__account__info">
+                                <p>11:26</p>
+                                <span class="isActive"></span>
+                            </div>
+                        </li>
+                    <% } %>
+                </ul>
+            </div>
+        </aside>
+        <main class="chat">
+            <header class="chat__header">
+                <h3>Tamara</h3>
+                <span class="isActive"></span>
+            </header>
+            <section class="chat__main">
+                <h3 class="message__title subtitle"></h3>
+                <p class="message__error"></p>
+
+                <ul class="message__list"></ul>
+
+                <form id="formMessage">
+                    <input type="text" name="message" id="message">
+                    <button type="submit"><i class="fa-solid fa-circle-chevron-right"></i></button>
+                </form>
+            </section>
+        </main>
+        <aside class="aside-right">
+            <section class="receiver">
+                <img src="" alt="photo profile" class="receiver__image">
+                <h2 class="message__title"></h2>
+            </section>
+            <section class="receiver__info">
+                <ul>
+                    <li class="receiver__info__phone">
+                        <p>Phone</p>
+                        <p>+62 356</p>
+                    </li>
+                    <li class="receiver__info__description">
+                        <p>Description</p>
+                        <p>Avaible</p>
+                    </li>
+                    <li class="receiver__info__email">
+                        <p>Email</p>
+                        <p>tamara@gmail.com</p>
+                    </li>
+                </ul>
+            </section>
+            <div class="shared">
+                <p>Shared File</p>
+                <form action="" class="shared__form">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <input type="file" name="file" id="file">
+                    <i class="fa-solid fa-angle-right"></i>
+                </form>
+            </div>
+
+        </aside>
     </div>
+    <script src="https://kit.fontawesome.com/e53f4fb6f8.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js" integrity="sha512-11t8Q+vY9JlCrr+PveZKTYJq8n7O09Y5X/pk/aMd3vJugSvu4xOunGEUzaADqL3I8cZKE/pBwwCfXzDkRJh2sQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="index.js"></script>
 </body>

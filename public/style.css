@@ -4,15 +4,234 @@
     box-sizing: border-box;
 }
 
-.receiver {
-    color: green;
+:root {
+    --bgDark: #EAEAEA;
+    --bgLight: #FAFAFA;
+    --greyOpacity: #EAEAEABF;
+    --isActive: #49FF89;
+    --blue: #A8EFFF;
+    --blueOpacity: #A8EFFF80;
 }
 
-.users__list {
+.main-container {
+    height: 100vh;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 350px 1fr 350px;
+    border-radius: 25px;
+}
+
+img {
+    display: block;
+}
+
+.subtitle {
+    font-size: 22px;
+}
+
+.isActive {
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    background-color: var(--isActive);
+}
+
+.isSelected {
+    font-weight: 700;
+    border-bottom: 3px solid var(--blue);
+}
+
+/***** Aside Left *****/
+
+.sender {
+    padding: 25px 0;
+    display: flex;
+    column-gap: 25px;
+}
+
+.sender__image {
+    height: 100px;
     width: 100px;
+    border-radius: 50%;
 }
 
-.users__list li{
-    margin: 10px 5px ;
+.sender__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 25px;
+}
+
+.sender__info__isActive {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+.switch {
+    height: 18px;
+    width: 38px;
+    position: relative;
+    display: inline-block;
+}
+
+.switch input {
+    height: 0;
+    width: 0;
+    opacity: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--isActive);
+    border-radius: 10px;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    height: 14px;
+    width: 14px;
+    position: absolute;
+    content: "";
+    right: 2px;
+    bottom: 2px;
+    background-color: white;
+    border-radius: 50%;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.switch input:checked + .slider {
+    background-color: var(--bgDark);
+}
+
+.switch input:checked + .slider:before {
+    -webkit-transform: translateX(-18px);
+    -ms-transform: translateX(-18px);
+    transform: translateX(-18px);
+}
+
+.search {
+    /* width: 90%; */
+    margin: 0 auto;
+    padding: 25px 0;
+    position: relative;
+}
+
+.search input {
+    height: 60px;
+    width: 100%;
+    padding: 25px;
+    font-size: 17px;
+    border-radius: 15px;
+    border: none;
+    background-color: var(--bgDark);
+}
+
+.search .fa-magnifying-glass {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    font-size: 18px;
+    transform: translateY(-50%);
+}
+
+.users {
+    padding: 25px 0;
+}
+
+.users__navbar ul{
+    margin: 15px 0;
+    display: flex;
+    list-style-type: none;
+}
+
+.users__navbar li {
+    height: 28px;
+    margin-right: 10px;
+    padding: 5px;
+    cursor: default;
+}
+
+.users__list__account {
+    height: 50px;
+    padding:  5px 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.users__list__account:hover {
+    background-color: var(--blueOpacity);
+    /* opacity: .5; */
+}
+
+.users__list__account__profile {
+    display: flex;
+    column-gap: 5px;
+}
+
+.users__list__account__profile img {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
     border: 1px solid black;
 }
+
+.users__list__account__profile .name {
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.users__list__account__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 5px;
+}
+
+/***** Main Part *****/
+
+.chat__header {
+    height: 10%;
+    border-radius: 20px 20px 0 0;
+    background-color: var(--bgDark);
+}
+
+.message {
+    padding: 15px;
+}
+
+.message__list__receiver {
+    -webkit-box-shadow: 5px 5px 5px 0px var(--greyOpacity);
+    -moz-box-shadow: 5px 5px 5px 0px var(--greyOpacity);
+    box-shadow: 5px 5px 5px 0px var(--greyOpacity);
+}
+
+.message__list__sender {
+    background-color: var(--bgDark);
+}
+
+.chat__main {
+    height: 90%;
+    position: relative;
+    background-color: var(--bgLight);
+}
+
+.chat__main form {
+    position: absolute;
+    bottom: 50px;
+}
+
+.chat__main form input {
+    -webkit-box-shadow: 0px 10px 5px 0px var(--greyOpacity);
+    -moz-box-shadow: 0px 10px 5px 0px var(--greyOpacity);
+    box-shadow: 0px 10px 5px 0px var(--greyOpacity);
+}
+
+
+

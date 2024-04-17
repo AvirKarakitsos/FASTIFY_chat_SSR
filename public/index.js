@@ -1,4 +1,4 @@
-const user = document.querySelector('.users__title');
+const user = document.querySelector('.sender__info__name');
 const message = document.getElementById('message');
 const messageTitle = document.querySelector('.message__title');
 const messageError = document.querySelector('.message__error');
@@ -37,6 +37,7 @@ form.addEventListener('submit', (e) => {
         messageError.textContent = '';
         const li = document.createElement('li');
         li.textContent = message.value;
+        li.classList.add('message__list__sender', 'message');
         element.appendChild(li);
         socket.emit('send', message.value);
     }
@@ -49,6 +50,6 @@ socket.on('isConnected', (msg) => {
 socket.on('receive', (msg) => {
     const li = document.createElement('li');
     li.textContent = msg;
-    li.classList.add('receiver');
+    li.classList.add('message__list__receiver', 'message');
     element.appendChild(li);
 });
