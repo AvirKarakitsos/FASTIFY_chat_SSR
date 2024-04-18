@@ -204,7 +204,12 @@ img {
     color: var(--greyText);
 }
 
-.users__list__account__profile__info, .users__list__account__info {
+.users__list__account__profile__info .name {
+    height: 45%;
+    margin-top: 2px;
+}
+
+.users__list__account__info {
     display: flex;
     flex-direction: column;
     justify-content: center;

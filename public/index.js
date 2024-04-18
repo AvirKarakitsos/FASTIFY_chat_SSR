@@ -40,6 +40,10 @@ form.addEventListener('submit', (e) => {
     }
 });
 
+message.addEventListener('keyup', () => {
+    socket.emit('isTyping', usersList.dataset.account);
+});
+
 socket.on('isConnected', (msg) => {
     console.log(msg);
 });
@@ -49,4 +53,18 @@ socket.on('receive', (msg) => {
     li.textContent = msg;
     li.classList.add('message__list__receiver', 'message');
     element.appendChild(li);
+});
+
+let typeTimer = null;
+
+socket.on('userTyping', (msg) => {
+    let userListAccount = document.querySelector(
+        `.users__list__account[data-id="${msg}"]`,
+    );
+    userListAccount.querySelector('.typing').textContent = 'Typing...';
+
+    clearTimeout(typeTimer);
+    typeTimer = setTimeout(() => {
+        userListAccount.querySelector('.typing').textContent = '';
+    }, 2000);
 });

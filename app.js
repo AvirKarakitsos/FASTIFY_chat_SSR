@@ -68,6 +68,10 @@ fastify.io.on('connection', (socket) => {
     socket.on('send', (msg) => {
         socket.to(socket.room).emit('receive', msg);
     });
+
+    socket.on('isTyping', (userId) => {
+        socket.to(socket.room).emit('userTyping', userId);
+    });
 });
 
 export { fastify };
