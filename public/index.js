@@ -1,7 +1,6 @@
 const user = document.querySelector('.sender__info__name');
 const message = document.getElementById('message');
 const messageTitle = document.querySelector('.message__title');
-const messageError = document.querySelector('.message__error');
 const usersList = document.querySelector('.users__list');
 const element = document.querySelector('.message__list');
 const form = document.getElementById('formMessage');
@@ -13,28 +12,26 @@ socket.on('connect', () => {
     console.log('client: ' + socket.id);
 });
 
-usersList.addEventListener('click', (e) => {
-    if (e.target.dataset.id) {
-        let senderId = parseInt(e.target.parentNode.dataset.account);
-        let receiverId = parseInt(e.target.dataset.id);
+function handleUser(e) {
+    if (e.dataset.id) {
+        let senderId = parseInt(e.parentNode.dataset.account);
+        let receiverId = parseInt(e.dataset.id);
         let roomId = null;
 
         if (senderId > receiverId) roomId = `room_${receiverId}_${senderId}`;
         else roomId = `room_${senderId}_${receiverId}`;
 
         socket.emit('join-room', roomId);
-        messageTitle.textContent = `En discussion avec ${e.target.textContent}`;
-        messageError.textContent = '';
+        messageTitle.textContent = e.querySelector('.name').textContent;
     }
-});
+}
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    if (messageTitle.textContent === '') {
-        messageError.textContent = 'Veuillez rejoindre une discussion';
+    if (messageTitle.textContent === 'Rejoindre un salon') {
+        alert('Veuillez rejoindre un salon');
     } else {
-        messageError.textContent = '';
         const li = document.createElement('li');
         li.textContent = message.value;
         li.classList.add('message__list__sender', 'message');

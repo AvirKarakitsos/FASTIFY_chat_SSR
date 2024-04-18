@@ -18,34 +18,34 @@
                             <input type="checkbox">
                             <span class="slider round"></span>
                           </label>
-                        <span>Active</span>
+                        <span class="text">Active</span>
                     </div>
                 </div>
             </div>
             <div class="search">
-                <input type="search" placeholder="Search Contact">
+                <input type="text" placeholder="Search Contact">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
             <div class="users">
                 <h3 class="subtitle">Chats</h3>
                 <nav class="users__navbar">
-                    <ul>
+                    <ul class="users__navbar__list">
                         <li class="isSelected">All</li>
                         <li>Group</li>
                     </ul>
                 </nav>
                 <ul class="users__list" data-account="<%= userAccount.id %>">
                     <% for(let user of users) { %>
-                        <li class="users__list__account" data-id="<%= user.id%>">
+                        <li class="users__list__account" data-id="<%= user.id%>" onclick="handleUser(this);">
                             <div class="users__list__account__profile">
                                 <img src="" alt="profile photo">
-                                <div>
+                                <div class="users__list__account__profile__info">
                                     <p class="name"><%= user.name %></p>
-                                    <p>Typing...</p>
+                                    <p class="typing">Typing...</p>
                                 </div>
                             </div>
                             <div class="users__list__account__info">
-                                <p>11:26</p>
+                                <p class="date">11:26</p>
                                 <span class="isActive"></span>
                             </div>
                         </li>
@@ -55,18 +55,16 @@
         </aside>
         <main class="chat">
             <header class="chat__header">
-                <h3>Tamara</h3>
+                <h3 class="message__title subtitle">Rejoindre un salon</h3>
                 <span class="isActive"></span>
             </header>
             <section class="chat__main">
-                <h3 class="message__title subtitle"></h3>
-                <p class="message__error"></p>
 
                 <ul class="message__list"></ul>
 
                 <form id="formMessage">
-                    <input type="text" name="message" id="message">
-                    <button type="submit"><i class="fa-solid fa-circle-chevron-right"></i></button>
+                    <input type="text" name="message" id="message" autocomplete="off" placeholder="Type Here">
+                    <button type="submit" class="submit"><i class="fa-solid fa-circle-chevron-right"></i></button>
                 </form>
             </section>
         </main>
