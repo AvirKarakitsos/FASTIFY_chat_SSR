@@ -20,7 +20,6 @@ export async function login(fastify, request, reply) {
 
     request.session.set('user', {
         id: result[0].id,
-        name: result[0].name,
     });
 
     return reply.redirect('/dashboard');

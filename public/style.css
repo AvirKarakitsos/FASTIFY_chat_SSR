@@ -193,7 +193,6 @@ img {
     height: 33px;
     width: 33px;
     border-radius: 50%;
-    border: 1px solid black;
 }
 
 .users__list__account__profile .name {

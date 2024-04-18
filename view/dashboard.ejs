@@ -10,7 +10,7 @@
     <div class="main-container">
         <aside class="aside-left">
             <div class="sender">
-                <img class="sender__image" src="https://randomuser.me/api/portraits/men/33.jpg" alt="profile photo">
+                <img class="sender__image" src="<%= userAccount.image %>" alt="profile photo">
                 <div class="sender__info">
                     <h2 class="sender__info__name subtitle" data-account="<%= userAccount.name %>"><%= userAccount.name %></h2>
                     <div class="sender__info__isActive">
@@ -38,7 +38,7 @@
                     <% for(let user of users) { %>
                         <li class="users__list__account" data-id="<%= user.id%>" onclick="handleUser(this);">
                             <div class="users__list__account__profile">
-                                <img src="" alt="profile photo">
+                                <img src="<%= user.image %>" alt="profile photo">
                                 <div class="users__list__account__profile__info">
                                     <p class="name"><%= user.name %></p>
                                     <p class="typing">Typing...</p>

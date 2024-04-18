@@ -1,5 +1,10 @@
 export async function dashboard(fastify, request, reply) {
-    const { id, name } = request.session.get('user');
+    const { id } = request.session.get('user');
+
+    const [user, userFields] = await fastify.mysql.query(
+        'SELECT * FROM users WHERE id = ?',
+        [id],
+    );
 
     const [results, fields] = await fastify.mysql.query(
         'SELECT * FROM users WHERE id != ?',
@@ -7,7 +12,7 @@ export async function dashboard(fastify, request, reply) {
     );
 
     return reply.view('view/dashboard.ejs', {
-        userAccount: { id, name },
+        userAccount: user[0],
         users: results,
     });
 }
