@@ -1,6 +1,7 @@
 const user = document.querySelector('.sender__info__name');
 const message = document.getElementById('message');
 const messageTitle = document.querySelector('.message__title');
+const usersNavbar = document.querySelector('.users__navbar__list');
 const usersList = document.querySelector('.users__list');
 const element = document.querySelector('.message__list');
 const form = document.getElementById('formMessage');
@@ -10,6 +11,19 @@ const socket = io('ws://localhost:3000');
 socket.on('connect', () => {
     socket.emit('user_connected', `${user.dataset.account} est connecté`);
     console.log('client: ' + socket.id);
+});
+
+usersNavbar.addEventListener('click', (e) => {
+    document.querySelector('.isSelected').classList.remove('isSelected');
+    e.target.classList.add('isSelected');
+
+    document.querySelector('.isHidden').classList.remove('isHidden');
+
+    if (e.target.dataset.category === 'all') {
+        document.querySelector('.group__list').classList.add('isHidden');
+    } else {
+        document.querySelector('.users__list').classList.add('isHidden');
+    }
 });
 
 function handleUser(e) {
@@ -23,6 +37,7 @@ function handleUser(e) {
 
         socket.emit('join-room', roomId);
         messageTitle.textContent = e.querySelector('.name').textContent;
+        element.textContent = '';
     }
 }
 

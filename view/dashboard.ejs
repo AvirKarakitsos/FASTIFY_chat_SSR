@@ -30,8 +30,8 @@
                 <h3 class="subtitle">Chats</h3>
                 <nav class="users__navbar">
                     <ul class="users__navbar__list">
-                        <li class="isSelected">All</li>
-                        <li>Group</li>
+                        <li data-category="all" class="isSelected">All</li>
+                        <li data-category="group">Group</li>
                     </ul>
                 </nav>
                 <ul class="users__list" data-account="<%= userAccount.id %>">
@@ -50,6 +50,12 @@
                             </div>
                         </li>
                     <% } %>
+                </ul>
+                <ul class="group__list isHidden">
+                    <li class="group__create">
+                        <i class="fa-solid fa-square-plus"></i>
+                        <p>Create a  Room</p>
+                    </li>
                 </ul>
             </div>
         </aside>

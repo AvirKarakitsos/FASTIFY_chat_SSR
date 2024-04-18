@@ -153,8 +153,7 @@ img {
 
 .users__navbar__list{
     margin: 15px 0;
-    display: flex;
-    
+    display: inline-flex;
     list-style-type: none;
     color: var(--greyText);
 }
@@ -214,6 +213,35 @@ img {
     flex-direction: column;
     justify-content: center;
     row-gap: 5px;
+}
+
+.group__list {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.group__create {
+    padding: 20px 10px;
+    justify-self: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 5px;
+    border-radius: 15px;
+    -webkit-box-shadow: 5px 5px 5px 0px var(--greyOpacity);
+    -moz-box-shadow: 5px 5px 5px 0px var(--greyOpacity);
+    box-shadow: 5px 5px 5px 0px var(--greyOpacity);
+}
+
+.fa-square-plus {
+    font-size: 25px;
+    color: var(--blue2);
+}
+
+.isHidden {
+    display: none;
 }
 
 /***** Main Part *****/
