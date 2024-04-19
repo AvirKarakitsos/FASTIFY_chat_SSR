@@ -2,15 +2,13 @@ const user = document.querySelector('.sender__info__name');
 const message = document.getElementById('message');
 const messageTitle = document.querySelectorAll('.message__title');
 const usersNavbar = document.querySelector('.users__navbar__list');
-const usersList = document.querySelector('.users__list');
 const element = document.querySelector('.message__list');
 const form = document.getElementById('formMessage');
 
 const socket = io('ws://localhost:3000');
 
 socket.on('connect', () => {
-    socket.emit('user_connected', `${user.dataset.account} est connecté`);
-    console.log('client: ' + socket.id);
+    socket.emit('user_connected', user.dataset.id);
 });
 
 usersNavbar.addEventListener('click', (e) => {
@@ -68,11 +66,15 @@ form.addEventListener('submit', (e) => {
 });
 
 message.addEventListener('keyup', () => {
-    socket.emit('isTyping', usersList.dataset.account);
+    socket.emit('isTyping', user.dataset.id);
 });
 
 socket.on('isConnected', (msg) => {
-    console.log(msg);
+    let userListAccount = document.querySelector(
+        `.users__list__account[data-id="${msg}"]`,
+    );
+    userListAccount.querySelector('.isConnected').classList.remove('notActive');
+    userListAccount.querySelector('.isConnected').classList.add('isActive');
 });
 
 socket.on('receive', (msg) => {

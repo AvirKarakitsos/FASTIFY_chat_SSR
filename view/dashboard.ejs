@@ -12,7 +12,12 @@
             <div class="sender">
                 <img class="sender__image" src="<%= userAccount.image %>" alt="profile photo">
                 <div class="sender__info">
-                    <h2 class="sender__info__name subtitle" data-account="<%= userAccount.name %>"><%= userAccount.name %></h2>
+                    <h2 
+                        class="sender__info__name subtitle" 
+                        data-id="<%= userAccount.id %>"
+                        data-name="<%= userAccount.name %>">
+                            <%= userAccount.name %>
+                    </h2>
                     <div class="sender__info__isActive">
                         <label class="switch">
                             <input type="checkbox">
@@ -36,7 +41,10 @@
                 </nav>
                 <ul class="users__list">
                     <% for(let user of users) { %>
-                        <li class="users__list__account" onclick="handleUser('<%= userAccount.id %>', '<%- encodeURIComponent(JSON.stringify(user)) %>')">
+                        <li 
+                            class="users__list__account"
+                            data-id="<%= user.id %>" 
+                            onclick="handleUser('<%= userAccount.id %>', '<%- encodeURIComponent(JSON.stringify(user)) %>')">
                             <div class="users__list__account__profile">
                                 <img src="<%= user.image %>" alt="profile photo">
                                 <div class="users__list__account__profile__info">
@@ -46,7 +54,7 @@
                             </div>
                             <div class="users__list__account__info">
                                 <p class="date">11:26</p>
-                                <span class="isActive"></span>
+                                <span class="isConnected notActive"></span>
                             </div>
                         </li>
                     <% } %>

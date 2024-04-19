@@ -52,8 +52,8 @@ fastify.register(userRoute);
 fastify.io.on('connection', (socket) => {
     //fastify.io.emit('isConnected', `${socket.id.substring(0, 5)} est connecté`);
 
-    socket.on('user_connected', (msg) => {
-        socket.broadcast.emit('isConnected', msg);
+    socket.on('user_connected', (userId) => {
+        socket.broadcast.emit('isConnected', userId);
     });
 
     socket.on('join-room', (room) => {

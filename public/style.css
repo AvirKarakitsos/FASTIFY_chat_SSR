@@ -10,6 +10,7 @@
     --greyOpacity: #EAEAEABF;
     --greyText: grey;
     --isActive: #49FF89;
+    --notActive: #FF0000;
     --blue: #A8EFFF;
     --blue2: #1BD5FF;
     --blueOpacity: #A8EFFF80;
@@ -33,10 +34,11 @@ img {
 }
 
 .isActive {
-    height: 5px;
-    width: 5px;
-    border-radius: 50%;
     background-color: var(--isActive);
+}
+
+.notActive {
+    background-color: var(--notActive);
 }
 
 .title {
@@ -214,6 +216,12 @@ img {
     flex-direction: column;
     justify-content: center;
     row-gap: 5px;
+}
+
+.users__list__account__info .isConnected {
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
 }
 
 .group__list {
