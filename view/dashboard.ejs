@@ -34,9 +34,9 @@
                         <li data-category="group">Group</li>
                     </ul>
                 </nav>
-                <ul class="users__list" data-account="<%= userAccount.id %>">
+                <ul class="users__list">
                     <% for(let user of users) { %>
-                        <li class="users__list__account" data-id="<%= user.id%>" onclick="handleUser(this);">
+                        <li class="users__list__account" onclick="handleUser('<%= userAccount.id %>', '<%- encodeURIComponent(JSON.stringify(user)) %>')">
                             <div class="users__list__account__profile">
                                 <img src="<%= user.image %>" alt="profile photo">
                                 <div class="users__list__account__profile__info">
@@ -74,33 +74,39 @@
                 </form>
             </section>
         </main>
+
         <aside class="aside-right">
             <section class="receiver">
-                <img src="" alt="photo profile" class="receiver__image">
-                <h2 class="message__title"></h2>
+                <img src="https://ui-avatars.com/api/?name=Profile&length=1&background=a8efff&color=1bd5ff&size=125" alt="photo profile" class="receiver__image">
+                <h2 class="message__title subtitle"></h2>
             </section>
             <section class="receiver__info">
                 <ul>
                     <li class="receiver__info__phone">
-                        <p>Phone</p>
-                        <p>+62 356</p>
+                        <p class="title">Phone</p>
+                        <p class="receiver__info__phone__text"></p>
                     </li>
                     <li class="receiver__info__description">
-                        <p>Description</p>
-                        <p>Avaible</p>
+                        <p class="title">Description</p>
+                        <p class="receiver__info__description__text text"></p>
                     </li>
                     <li class="receiver__info__email">
-                        <p>Email</p>
-                        <p>tamara@gmail.com</p>
+                        <p class="title">Email</p>
+                        <p class="receiver__info__email__text text"></p>
                     </li>
                 </ul>
             </section>
             <div class="shared">
-                <p>Shared File</p>
+                <p class="title">Shared File</p>
                 <form action="" class="shared__form">
-                    <i class="fa-solid fa-file-lines"></i>
-                    <input type="file" name="file" id="file">
-                    <i class="fa-solid fa-angle-right"></i>
+                    <label for="file"  class="shared__label">
+                        <div class="icone">
+                            <i class="fa-solid fa-file-lines"></i>
+                        </div>
+                        <p>File</p>
+                        <input type="file" name="file" id="file">
+                        <i class="fa-solid fa-angle-right"></i>
+                    </label>
                 </form>
             </div>
 

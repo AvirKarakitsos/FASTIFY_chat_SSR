@@ -1,6 +1,6 @@
 const user = document.querySelector('.sender__info__name');
 const message = document.getElementById('message');
-const messageTitle = document.querySelector('.message__title');
+const messageTitle = document.querySelectorAll('.message__title');
 const usersNavbar = document.querySelector('.users__navbar__list');
 const usersList = document.querySelector('.users__list');
 const element = document.querySelector('.message__list');
@@ -26,17 +26,29 @@ usersNavbar.addEventListener('click', (e) => {
     }
 });
 
-function handleUser(e) {
-    if (e.dataset.id) {
-        let senderId = parseInt(e.parentNode.dataset.account);
-        let receiverId = parseInt(e.dataset.id);
+function handleUser(userId, res) {
+    const decodeRes = decodeURIComponent(res);
+    const parseRes = JSON.parse(decodeRes);
+
+    if (parseRes.id) {
+        let senderId = parseInt(userId);
+        let receiverId = parseInt(parseRes.id);
         let roomId = null;
 
         if (senderId > receiverId) roomId = `room_${receiverId}_${senderId}`;
         else roomId = `room_${senderId}_${receiverId}`;
 
         socket.emit('join-room', roomId);
-        messageTitle.textContent = e.querySelector('.name').textContent;
+
+        //Change informations in dashboard
+        messageTitle.forEach((item) => {
+            item.textContent = parseRes.name;
+        });
+
+        document.querySelector('.receiver__image').srcset = parseRes.image;
+        document.querySelector('.receiver__info__email__text').innerHTML =
+            parseRes.email;
+
         element.textContent = '';
     }
 }
@@ -44,7 +56,7 @@ function handleUser(e) {
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    if (messageTitle.textContent === 'Rejoindre un salon') {
+    if (messageTitle[0].textContent === 'Rejoindre un salon') {
         alert('Veuillez rejoindre un salon');
     } else {
         const li = document.createElement('li');
