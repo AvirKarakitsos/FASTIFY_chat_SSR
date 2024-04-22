@@ -1,20 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --bgDark: #EAEAEA;
-    --bgLight: #FAFAFA;
-    --greyOpacity: #EAEAEABF;
-    --greyText: grey;
-    --isActive: #49FF89;
-    --notActive: #FF0000;
-    --blue: #A8EFFF;
-    --blue2: #1BD5FF;
-    --blueOpacity: #A8EFFF80;
-}
+@import url("_colors.css");
 
 .main-container {
     height: 100vh;
@@ -22,6 +6,7 @@
     display: grid;
     grid-template-columns: 350px 500px 350px;
     justify-content: space-between;
+    color: var(--blackText);
     border-radius: 25px;
 }
 
@@ -29,9 +14,6 @@ img {
     display: block;
 }
 
-.subtitle {
-    font-size: 22px;
-}
 
 .isActive {
     background-color: var(--isActive);
@@ -41,7 +23,12 @@ img {
     background-color: var(--notActive);
 }
 
-.title {
+.subtitle {
+    font-size: 22px;
+    color: black;
+}
+
+.ft-bold {
     font-weight: 700;
 }
 
@@ -166,7 +153,7 @@ img {
 
 .isSelected {
     font-weight: 700;
-    color: black;
+    color: var(--blackText);
     border-bottom: 3px solid var(--blue2);
 }
 
@@ -257,7 +244,7 @@ img {
 
 .chat__header {
     height: 10%;
-    padding: 0 20px;
+    padding: 0 30px;
     display: flex;
     align-items: center;
     column-gap: 2px;

@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+:root {
+    --bgDark: #EAEAEA;
+    --bgLight: #FAFAFA;
+    --greyOpacity: #EAEAEABF;
+    --blackText: #323232;
+    --greyText: grey;
+    --isActive: #49FF89;
+    --notActive: #FF0000;
+    --blue: #A8EFFF;
+    --blue2: #1BD5FF;
+    --blueOpacity: #A8EFFF80;
+}
