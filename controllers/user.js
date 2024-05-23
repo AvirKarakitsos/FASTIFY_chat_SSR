@@ -7,7 +7,7 @@ export async function dashboard(fastify, request, reply) {
     );
 
     const [results, fields] = await fastify.mysql.query(
-        'SELECT * FROM users WHERE id != ?',
+        'SELECT id, name, image, email, phone FROM users WHERE id != ?',
         [id],
     );
 

@@ -44,7 +44,9 @@ function handleUser(userId, res) {
         });
 
         document.querySelector('.receiver__image').srcset = parseRes.image;
-        document.querySelector('.receiver__info__email__text').innerHTML =
+        document.querySelector('.receiver__info__phone__text').textContent =
+            parseRes.phone;
+        document.querySelector('.receiver__info__email__text').textContent =
             parseRes.email;
 
         element.textContent = '';

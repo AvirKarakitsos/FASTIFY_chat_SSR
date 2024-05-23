@@ -12,10 +12,7 @@
             <div class="sender">
                 <img class="sender__image" src="<%= userAccount.image %>" alt="profile photo">
                 <div class="sender__info">
-                    <h2 
-                        class="sender__info__name subtitle" 
-                        data-id="<%= userAccount.id %>"
-                        data-name="<%= userAccount.name %>">
+                    <h2 class="sender__info__name subtitle" data-id="<%= userAccount.id %>">
                             <%= userAccount.name %>
                     </h2>
                     <div class="sender__info__isActive">
@@ -49,11 +46,11 @@
                                 <img src="<%= user.image %>" alt="profile photo">
                                 <div class="users__list__account__profile__info">
                                     <p class="name"><%= user.name %></p>
-                                    <p class="typing"></p>
+                                    <p class="typing grey-text fs-15"></p>
                                 </div>
                             </div>
                             <div class="users__list__account__info">
-                                <p class="date">11:26</p>
+                                <p class="date grey-text fs-15">11:26</p>
                                 <span class="isConnected notActive"></span>
                             </div>
                         </li>
@@ -92,15 +89,15 @@
                 <ul>
                     <li class="receiver__info__phone">
                         <p class="ft-bold">Phone</p>
-                        <p class="receiver__info__phone__text"></p>
+                        <p class="receiver__info__phone__text grey-text"></p>
                     </li>
                     <li class="receiver__info__description">
                         <p class="ft-bold">Description</p>
-                        <p class="receiver__info__description__text text"></p>
+                        <p class="receiver__info__description__text grey-text"></p>
                     </li>
                     <li class="receiver__info__email">
                         <p class="ft-bold">Email</p>
-                        <p class="receiver__info__email__text text"></p>
+                        <p class="receiver__info__email__text grey-text"></p>
                     </li>
                 </ul>
             </section>
@@ -113,7 +110,7 @@
                         </div>
                         <p>File</p>
                         <input type="file" name="file" id="file">
-                        <i class="fa-solid fa-angle-right"></i>
+                        <i class="fa-solid fa-angle-right grey-text"></i>
                     </label>
                 </form>
             </div>

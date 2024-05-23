@@ -32,6 +32,14 @@ img {
     font-weight: 700;
 }
 
+.fs-15 {
+    font-size: 15px;
+}
+
+.grey-text {
+    color: var(--greyText);
+}
+
 /***** Aside Left *****/
 .aside-left {
     padding: 0 15px;
@@ -110,10 +118,6 @@ img {
     transform: translateX(-18px);
 }
 
-.sender__info__isActive .text {
-    color: var(--greyText);
-}
-
 .search {
     margin: 0 auto;
     padding: 25px 0;
@@ -125,7 +129,6 @@ img {
     width: 100%;
     padding: 25px;
     font-size: 17px;
-    color: var(--greyText);
     border-radius: 15px;
     border: none;
     outline: none;
@@ -148,7 +151,6 @@ img {
     margin: 15px 0;
     display: inline-flex;
     list-style-type: none;
-    color: var(--greyText);
 }
 
 .isSelected {
@@ -166,7 +168,7 @@ img {
 
 .users__list__account {
     height: 50px;
-    padding: 5px;
+    padding: 8px 5px;
     display: flex;
     justify-content: space-between;
     cursor: pointer;
@@ -185,11 +187,6 @@ img {
     height: 33px;
     width: 33px;
     border-radius: 50%;
-}
-
-.users__list__account__profile .typing, .users__list__account__info .date {
-    font-size: 15px;
-    color: var(--greyText);
 }
 
 .users__list__account__profile__info .name {
@@ -365,10 +362,6 @@ img {
     row-gap: 5px;
 }
 
-.receiver__info .text {
-    color: var(--greyText);
-}
-
 .shared {
     padding: 25px 0;
 }
@@ -409,7 +402,6 @@ img {
 .shared__label .fa-angle-right {
     padding: 5px 8px;
     font-size: 22px;
-    color: var(--greyText);
     border-radius: 5px;
 }
 
