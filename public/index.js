@@ -64,6 +64,7 @@ form.addEventListener('submit', (e) => {
         li.classList.add('message__list__sender', 'message');
         element.appendChild(li);
         socket.emit('send', message.value);
+        message.value = '';
     }
 });
 
