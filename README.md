@@ -19,9 +19,9 @@ Afin d'installer toutes les librairies
 Créer un fichier .env afin de stocker vos propres variables d'environnement.
 4 varibles suivantes à définir afin de vous connecter à votre base de données mySQL.
 
-DB_HOST= exemple: "localhost"
-DB_DATABASE= nom de votre base de données
-DB_USERNAME= exemple: "root"
+DB_HOST= exemple: "localhost"  
+DB_DATABASE= nom de votre base de données  
+DB_USERNAME= exemple: "root"  
 DB_PASSWORD= mot de passe
 
 ### `npm run dev`
