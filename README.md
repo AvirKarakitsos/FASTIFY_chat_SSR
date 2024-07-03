@@ -1,3 +1,5 @@
+# Messagerie instantanée
+
 ## Description
 
 Site de messagerie instantanée, avec un rendu côté serveur (SSR). Utilisation du framework Fastify, de la librairie _socket.io_. Base de données avec mySQL.
@@ -10,7 +12,9 @@ Site de messagerie instantanée, avec un rendu côté serveur (SSR). Utilisation
 
 ## Installation
 
-### `npm install`
+```
+npm install
+```
 
 Afin d'installer toutes les librairies
 
@@ -24,6 +28,8 @@ DB_DATABASE= nom de votre base de données
 DB_USERNAME= exemple: "root"  
 DB_PASSWORD= mot de passe
 
-### `npm run dev`
+```
+npm run dev
+```
 
 Une version de Node 18.11 minimmum est requise (utilisation du flag --watch)
