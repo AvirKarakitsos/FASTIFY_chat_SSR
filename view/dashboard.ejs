@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Dashboard</title>
+
 </head>
 <body>
     <div class="main-container">
@@ -16,11 +17,10 @@
                             <%= userAccount.name %>
                     </h2>
                     <div class="sender__info__isActive">
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                          </label>
-                        <span class="text">Active</span>
+                        <a href="/logout">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                        </a>
+                        <p>Logout</p>
                     </div>
                 </div>
             </div>
@@ -121,8 +121,8 @@
 
         </aside>
     </div>
-    <script src="https://kit.fontawesome.com/e53f4fb6f8.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js" integrity="sha512-11t8Q+vY9JlCrr+PveZKTYJq8n7O09Y5X/pk/aMd3vJugSvu4xOunGEUzaADqL3I8cZKE/pBwwCfXzDkRJh2sQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="index.js"></script>
 </body>
+<script src="https://kit.fontawesome.com/e53f4fb6f8.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js" integrity="sha512-11t8Q+vY9JlCrr+PveZKTYJq8n7O09Y5X/pk/aMd3vJugSvu4xOunGEUzaADqL3I8cZKE/pBwwCfXzDkRJh2sQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="index.js"></script>
 </html>

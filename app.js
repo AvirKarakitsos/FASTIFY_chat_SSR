@@ -51,7 +51,8 @@ fastify.register(userRoute);
 
 fastify.io.on('connection', (socket) => {
     socket.on('user_connected', async (userId) => {
-        socket.broadcast.emit('isConnected', userId);
+        socket.userId = userId;
+        socket.broadcast.emit('isConnected', { userId, isConnected: true });
     });
 
     socket.on('join-room', (room) => {
@@ -69,6 +70,14 @@ fastify.io.on('connection', (socket) => {
 
     socket.on('isTyping', (userId) => {
         socket.to(socket.room).emit('userTyping', userId);
+    });
+
+    socket.on('disconnect', () => {
+        socket.broadcast.emit('isConnected', {
+            userId: socket.userId,
+            isConnected: false,
+        });
+        console.log('Disconnected from server: ' + socket.userId);
     });
 });
 

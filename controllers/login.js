@@ -24,3 +24,16 @@ export async function login(fastify, request, reply) {
 
     return reply.redirect('/dashboard');
 }
+
+export async function logout(fastify, request, reply) {
+    const { id } = request.session.get('user');
+
+    await fastify.mysql.query(
+        'UPDATE users SET isConnected=false WHERE id = ?',
+        [id],
+    );
+
+    request.session.delete();
+
+    return reply.redirect('/login');
+}

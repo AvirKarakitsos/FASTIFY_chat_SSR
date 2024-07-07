@@ -69,54 +69,12 @@ img {
     align-items: center;
     column-gap: 10px;
 }
-.switch {
-    height: 18px;
-    width: 38px;
-    position: relative;
-    display: inline-block;
+
+.fa-right-from-bracket {
+    font-size: 22px;
+    color: var(--blue2);
 }
 
-.switch input {
-    height: 0;
-    width: 0;
-    opacity: 0;
-}
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--isActive);
-    border-radius: 10px;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-.slider:before {
-    height: 14px;
-    width: 14px;
-    position: absolute;
-    content: "";
-    right: 2px;
-    bottom: 2px;
-    background-color: white;
-    border-radius: 50%;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-.switch input:checked + .slider {
-    background-color: var(--bgDark);
-}
-
-.switch input:checked + .slider:before {
-    -webkit-transform: translateX(-18px);
-    -ms-transform: translateX(-18px);
-    transform: translateX(-18px);
-}
 
 .search {
     margin: 0 auto;

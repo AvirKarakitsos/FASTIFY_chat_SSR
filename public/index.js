@@ -74,10 +74,22 @@ message.addEventListener('keyup', () => {
 
 socket.on('isConnected', (msg) => {
     let userListAccount = document.querySelector(
-        `.users__list__account[data-id="${msg}"]`,
+        `.users__list__account[data-id="${msg.userId}"]`,
     );
-    userListAccount.querySelector('.isConnected').classList.remove('notActive');
-    userListAccount.querySelector('.isConnected').classList.add('isActive');
+
+    if (msg.isConnected) {
+        userListAccount
+            .querySelector('.isConnected')
+            .classList.remove('notActive');
+        userListAccount.querySelector('.isConnected').classList.add('isActive');
+    } else {
+        userListAccount
+            .querySelector('.isConnected')
+            .classList.remove('isActive');
+        userListAccount
+            .querySelector('.isConnected')
+            .classList.add('notActive');
+    }
 });
 
 socket.on('receive', (msg) => {
