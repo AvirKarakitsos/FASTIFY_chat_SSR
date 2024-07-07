@@ -50,7 +50,7 @@ fastify.register(loginRoute);
 fastify.register(userRoute);
 
 fastify.io.on('connection', (socket) => {
-    socket.on('user_connected', (userId) => {
+    socket.on('user_connected', async (userId) => {
         socket.broadcast.emit('isConnected', userId);
     });
 

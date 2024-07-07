@@ -51,7 +51,11 @@
                             </div>
                             <div class="users__list__account__info">
                                 <p class="date grey-text fs-15">11:26</p>
-                                <span class="isConnected notActive"></span>
+                                <% if(user.isConnected == '1'){ %>
+                                    <span class="isConnected isActive"></span>
+                                <% } else{ %>  
+                                    <span class="isConnected notActive"></span>
+                                <% } %>
                             </div>
                         </li>
                     <% } %>

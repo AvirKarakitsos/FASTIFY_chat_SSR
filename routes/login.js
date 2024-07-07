@@ -5,10 +5,7 @@ export function loginRoute(fastify, option, done) {
 
     fastify.get('/login', index);
 
-    fastify.post(
-        '/login',
-        async (request, reply) => await login(fastify, request, reply),
-    );
+    fastify.post('/login', (request, reply) => login(fastify, request, reply));
 
     done();
 }
